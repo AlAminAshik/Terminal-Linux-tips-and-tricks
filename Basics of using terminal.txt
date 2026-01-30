@@ -1,0 +1,48 @@
+The followings are optimized for using on linux and Mac. Most of them are also supported on windows.
+
+> Opening terminal
+	> linux: ctrl+alt+t
+	> Mac: from spotlight
+	> windows: Win + X
+
+> Folder management
+	> showing current directory: 
+		pwd
+	> moving to another folder: 
+		cd Downloads
+	> moving to folder inside a folder: 
+		cd Downloads/steeltech
+	> removing a file: 
+		rm <file name>
+	> moving a file from one folder to another:
+		mv mdalaminashik/downloads/image.jpg mdalaminashik/desktop
+	> showing the list of files and folder in current directory 
+		ls
+	> copying a file from one folder to another:
+		cp ~/Downloads/report.pdf ~/Documents/
+
+> check basic updates for linux:
+		sudo apt update
+> check and upgrade for linux: (will prompt for agreement)
+		sudo apt upgrade
+> installing wget to download anything from web (usually installed by default)
+		sudo apt install wget
+> Downloading a software from web (chrome)
+		wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+	after installation:
+		sudo apt install ./google-chrome-stable_current_amd64.deb
+> generally viewing a version of a package or software
+		python3 --version or pip3 --version
+> generally opening the available options of a package
+		python3 --help or pip3 --help
+
+> Viewing all the applications that are opened
+		ps aux
+	if you want to see only particular app
+		ps aux | grep preview
+	to stop/end an app
+		kill <pid>
+> Viewing the cpu, storage, temperature and other parameters.
+		htop (linux)
+		jtop (for jetson)
+		top (Mac)
