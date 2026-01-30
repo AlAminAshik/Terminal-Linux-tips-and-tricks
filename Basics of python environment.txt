@@ -1,0 +1,14 @@
+The followings are optimized for using on linux and Mac. Python3 is usually gets installed with sudo apt upgrade on linux.
+
+> Environment is useful when:
+	> permission issue arises on the device while installing packages.
+	> keeping a particular package completely separated from other python versions
+
+> Downloading and installing environment
+		sudo apt install python3-venv
+> Create a virtual environment. (Can take some time)
+		python3 -m venv myenv
+	after creating, activate environment
+		source myenv/bin/activate
+	to deactivate the environment
+		deactivate
