@@ -1,0 +1,15 @@
+The followings are optimized for using on linux and Mac. Most of them are also supported on windows. Python3 is usually gets installed with sudo apt upgrade on linux.
+
+> if python is already not installed download and install from official website
+> Install python on linux:
+		sudo apt install python3
+> checking version of installed python
+		python3 --version
+> installing package installer for python
+		sudo apt install python3-pip
+> using package installer to download and install a package (downloading down)
+		pip install gdown
+> using a specific version of python and pip to install a package:
+		python3 -m pip install gdown
+> Running a python code. Go to the directory where the code is located.
+		python3 blink.py
