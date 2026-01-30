@@ -1,0 +1,47 @@
+The followings are optimized for using on linux and Mac. SSH is usually installed by default on Mac and other linux devices.
+
+> enabling ssh on windows
+	> Go to Apps > Apps & features > optional features.
+	> go to Add a feature > OpenSSH Server > install.
+> enabling remote control of MacBook
+	> Go to Settings > General > sharing > enable Remote login.
+
+> Generally connecting to a device via local ssh. Make sure both devices are connected to the same network.
+	> ssh <device name>@<<device ip>
+
+> Controlling a jetson or SBC via terminal from Mac
+	> find the SBC name
+		whoami
+	> find the ip address of the SBC
+		ifconfig | grep net
+	> Finally connect and enter the SBC password
+		ssh threadbridge@192.168.1.122
+
+> Controlling a Mac using phone (termux)
+	> find the Mac name
+		whoami
+	> find the ip address of Mac
+		ifconfig | grep inet
+	> Finally connect and enter the MacBooks password
+		ssh mdalaminashik@192.168.0.112
+
+> Controlling phone using MacBook
+	> ensure phone has ssh installed on termux app. Give access to all files for termux app.
+		pkg update
+		pkg install openssh
+		passed
+		sshd
+	> find the phone name
+		whoami
+	> find the ip address of phone
+		ifconfig | grep inet
+	> Finally connect and enter the phones password (termux ssh server listens on port 8022)
+		ssh -p 8022 u0_a468@192.168.0.239
+
+> copying a file from a connected to device to controlling device. (Copying from phone to Mac)
+	> Connect to phone from Mac via ssh
+	> from Mac find the item to copy
+		cd ~storage/downloads/robiLogo.png
+	> use the laptops name and ip to copy from the phone all from the laptop
+		scp robiLogo.png mdalaminashik@192.168.0.112:/Users/mdalaminashik/Downloads
+	> This will copy the logo from phones download folder and paster it onto laptops download folder.
