@@ -14,12 +14,22 @@ The followings are optimized for using on linux and Mac. Most of them are also s
 		cd Downloads/steeltech
 	> removing a file: 
 		rm <file name>
+	> removing a folder with its contents
+		rm -r <folder name>
 	> moving a file from one folder to another:
 		mv mdalaminashik/downloads/image.jpg mdalaminashik/desktop
 	> showing the list of files and folder in current directory 
 		ls
 	> copying a file from one folder to another:
 		cp ~/Downloads/report.pdf ~/Documents/
+	> Creating a new directory folder
+		mkdir Myfolder
+	> creating new files
+		touch myCode.html
+	> open a file in textedit software
+		open -e myCode.html
+	> opening a vscode file from directory
+		code .
 
 > check basic updates for linux:
 		sudo apt update
