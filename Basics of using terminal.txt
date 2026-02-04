@@ -18,10 +18,14 @@ The followings are optimized for using on linux and Mac. Most of them are also s
 		rm -r <folder name>
 	> moving a file from one folder to another:
 		mv mdalaminashik/downloads/image.jpg mdalaminashik/desktop
+	> renaming a file or folder (basically moving)
+		mv text.txt new_text.txt
+		mv folder Newfolder
 	> showing the list of files and folder in current directory 
 		ls
 	> copying a file from one folder to another:
 		cp ~/Downloads/report.pdf ~/Documents/
+		cp myFile.txt myFile\ copy.txt
 	> Creating a new directory folder
 		mkdir Myfolder
 	> creating new files
@@ -30,6 +34,16 @@ The followings are optimized for using on linux and Mac. Most of them are also s
 		open -e myCode.html
 	> opening a vscode file from directory
 		code .
+
+> opening any application
+	> open chrome (Mac)
+		open -a "google chrome"
+	> open a file or link on chrome (Mac)
+		open -a "Google Chrome" "main.html"
+	> opening a code in textEdit (Mac)
+		open -a "textEdit" "notepad.txt" 
+	> opening an app (linux)
+		google-chrome or chromium-browser
 
 > check basic updates for linux:
 		sudo apt update

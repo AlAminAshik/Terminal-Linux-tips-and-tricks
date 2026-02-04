@@ -1,0 +1,11 @@
+The followings are optimized for using on linux and mac. Similar thing can be applied to windows. To run a C program in linux you need to install gcc,
+
+//For linux
+1. Install GCC
+	sudo apt install gcc
+2. create a new c file, save and exit
+	nano test.c
+3. compile the code, this will create a compiled output named TestCode
+	gcc test.c -o TestCode
+4. Run the code
+	./TestCode
