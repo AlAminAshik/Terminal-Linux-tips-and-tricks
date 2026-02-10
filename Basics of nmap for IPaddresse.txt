@@ -1,0 +1,6 @@
+The following shows how to use nmap to find the IP addresses that are connected to the same network. this is useful to find the ip address of lets say bananpi connected to ethernet but does not have a display connected so you need its ip to remotely control via ssh.
+
+Windows
+	> Download and install from https://nmap.org/download
+	> open terminal and type "nmap -sL 192.168.0.0/24" to find all the devices IP connected to same network from 192.168.0.0 to 192.168.0.255
+	> Type nmap -A "192.168.0.100" to get details about the device connected at 192.168.0.100
