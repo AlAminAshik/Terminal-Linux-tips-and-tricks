@@ -1,5 +1,8 @@
 The followings are optimized for using on linux and Mac. Most of them are also supported on windows.
 
+> scrolling in terminal
+	> Mac: fn + upArrow or fn + downArrow
+
 > Opening terminal
 	> linux: ctrl+alt+t
 	> Mac: from spotlight
@@ -25,6 +28,7 @@ The followings are optimized for using on linux and Mac. Most of them are also s
 		ls
 	> copying a file from one folder to another:
 		cp ~/Downloads/report.pdf ~/Documents/
+		cp myFile.txt myFile\ copy.txt
 	> Creating a new directory folder
 		mkdir Myfolder
 	> creating new files
