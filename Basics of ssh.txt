@@ -45,3 +45,6 @@ The followings are optimized for using on linux and Mac. SSH is usually installe
 	> use the laptops name and ip to copy from the phone all from the laptop
 		scp robiLogo.png mdalaminashik@192.168.0.112:/Users/mdalaminashik/Downloads
 	> This will copy the logo from phones download folder and paster it onto laptops download folder.
+
+> Compressing a file
+	> Mac: sudo tar -czvf [archive-name.tar.gz] [directory-to-compress]

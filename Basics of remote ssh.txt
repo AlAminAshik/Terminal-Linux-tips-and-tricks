@@ -1,0 +1,7 @@
+Controlling a device over internet can be done using two methods, ngrok and telebit. Unfortunately ngrok requires a credit card to be put in even for the free version. but ngrok is much easier and does not cause much issue.
+
+> Using telebit:
+	> From macbook type ~/telebit ssh root@blue-emu-80.telebit.io for connecting with bananapi.
+
+> Using ngrok:
+	> ssh threadbridge2@0.tcp.in.ngrok.io -p 15947
