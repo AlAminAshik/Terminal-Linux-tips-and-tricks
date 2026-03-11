@@ -1,0 +1,30 @@
+The following codes work for almost all OS. if git is not found, download and install.
+
+> It's better to create a blank repository with a README file from the web and then clone that repository on your local machine.
+
+> Basic 
+	> After updating on the local machine, check the status
+		git status
+	> to prepare file and folders for git upload
+		git add .
+	> add a comment
+		git commit -m 'message'
+	> Push the repo
+		git push
+
+> To discard/delete a local change and fetch from online
+	> fetch everything
+		git fetch --all
+	> reset/overwrite all local changes
+		git reset --hard origin/main
+	> delete untracked file and directories
+		git clean -fd
+	> if still git status shows any file, manually delete those.
+
+> For one-time git clone/push method, useful for cloning and editing from unknown computer
+	> Create a Token by going to github.com > setting > developer > personal token > token classic
+	> on the new computer clone a repo
+		git clone <URL>
+	> credentials are
+		username: AlAminAshik
+		password: <token>

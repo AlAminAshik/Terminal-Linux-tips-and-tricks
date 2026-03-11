@@ -1,0 +1,20 @@
+> viewing a text/code on the terminal
+	cat filename.txt
+
+> Basics of nano
+	> Creating a blank file
+		sudo nano temp.py
+	> save a file
+		ctrl + s
+	> exit from file edit
+		ctrl + x
+
+> If nano does not work, use vim
+	> creating a blank file
+		vim temp.py
+	> move from normal mode to insert mode, press i
+	> to exit insert mode, press Esc
+	> to save and exit the file 
+		:wq
+	> to force save 
+		:wq!
