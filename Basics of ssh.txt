@@ -48,3 +48,11 @@ The followings are optimized for using on linux and Mac. SSH is usually installe
 
 > Compressing a file
 	> Mac: sudo tar -czvf [archive-name.tar.gz] [directory-to-compress]
+
+> Finding the IP address of a device connected to windows ethernet port
+	> on windows type
+		ipconfig
+	> The IPv4 address under Wi-Fi is the computer's IP (192.168.0.137). For the Ethernet interface, look for the IPv4 address; this is the device's IP (192.168.137.1). Use that to connect via SSH, but if it does not work, follow the method below.
+	> on Windows type
+		arp -a
+	> The IP of the device lies under the interface of its IP, the actual IP has the physical address in multiple letters, that is, the real internet address.(192.168.137.172) use this to connect to ssh.
