@@ -13,3 +13,18 @@ The followings are optimized for using on linux and Mac. Most of them are also s
 		python3 -m pip install gdown
 > Running a python code. Go to the directory where the code is located.
 		python3 blink.py
+
+Running a cv2 code remote over ssh
+> connect to linux machine remotely over ssh
+	ssh admin@192.169.0.XXX
+> check is display is avaiable for SSH device
+	echo $DISPLAY
+> if it returns nothing, open terminal on linux and type
+	echo $DISPLAY
+> it should return something like :0
+> On the SSH device set the display
+	export DISPLAY=:0
+> Also on the linux, disable local x11 access restrictions.
+	DISPLAY=:0 xhost +local:
+It means, allow connections from users logged into this machine locally via terminals.
+> Now, you can run a script remotely (from mac) and display will appear on the linux.
