@@ -73,3 +73,4 @@ The followings are optimized for using on linux and Mac. Most of them are also s
 		htop (linux)
 		jtop (for jetson)
 		top (Mac)
+		uptime (to see how long the device is kept on)
