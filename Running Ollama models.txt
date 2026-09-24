@@ -1,24 +1,24 @@
+## The following is for bananapi M1 1GB
+
 The following shows how to download setup and run ollama models from hugging face. The 32 bit system is for bananapi and the other systems also follow similar pattern.
 
 Linux (32-bit armv7l)
 	1) install llama.cpp as new directory (since full llama is not supported on bananapi)
-		git clone https://github.com/ggerganov/llama.cpp
+		`git clone https://github.com/ggerganov/llama.cpp`
 	2) Make sure C++ compiler is installed
-		apt install -y build-essential cmake
+		`apt install -y build-essential cmake`
 	3) Go to the llama.cpp directory and build llama.cpp. -j2 means use 2 core.
-		cmake --build build -j2
+		`cmake --build build -j2`
 		''if cmake is not installed: sudo apt install cmake -y''
 	4) After a long wait of build check the files and look for "llama-cli" under "ls build/bin/"
-		cd /build/bin
+		`cd /build/bin`
 	5) Download a model from https://huggingface.co/ select a model and copy its Download link. save on a directory on the Linux device.
-		wget https://huggingface.co/unsloth/DeepSeek-R1-Distill-Qwen-1.5B-GGUF/resolve/main/DeepSeek-R1-Distill-Qwen-1.5B-Q2_K.gguf
+		`wget https://huggingface.co/unsloth/DeepSeek-R1-Distill-Qwen-1.5B-GGUF/resolve/main/DeepSeek-R1-Distill-Qwen-1.5B-Q2_K.gguf`
 	6) make sure enough space is present
-		free -h
-		swapon --show
+		`free -h`
+		`swapon --show`
 	7) Finally, run the model.
-		 ~/Myfolder/Ollamatest/llama.cpp/build/bin/llama-cli -m ~/Myfolder/Ollamatest/deepseekModels/DeepSeek-R1-Distill-Qwen-1.5B-Q2_K.gguf -p "Explain what an embedded system is in simple terms." -n 64 --ctx-size 256 --threads 2 --batch-size 16 --no-mmap
-
-
+		 `~/Myfolder/Ollamatest/llama.cpp/build/bin/llama-cli -m ~/Myfolder/Ollamatest/deepseekModels/DeepSeek-R1-Distill-Qwen-1.5B-Q2_K.gguf -p "Explain what an embedded system is in simple terms." -n 64 --ctx-size 256 --threads 2 --batch-size 16 --no-mmap`
 
 Note:
 What each flag means while running the downloaded model:
@@ -27,3 +27,22 @@ What each flag means while running the downloaded model:
 --no-mmap → prevents filesystem crashes on low RAM
 -n 64 → limits output tokens
 --threads 2 → matches Banana Pi cores 2)
+
+## The following is for the Orange pi 5 plus 16GB
+This is a 64 bit board with 8 core processors. Contains on board 16GB RAM along with 6 TOPS NPU.
+	1)	install llama.cpp as new directory (since full llama is not supported on bananapi)
+		`git clone https://github.com/ggerganov/llama.cpp`
+	2)	Move to the llama directory: 
+		`cd llama.cpp`
+	3)	Cofigure for ARM optimization so that it utilizes hardware vector extensions and dot product:
+		```
+		cmake -B build \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_C_FLAGS="-march=armv8.2-a+dotprod+fp16fml" \
+		-DCMAKE_CXX_FLAGS="-march=armv8.2-a+dotprod+fp16fml"
+		```
+	4)	Run the build on 8 threads, this may take some time:
+		`cmake --build build --config Release -j8`
+	5)	Move to the build directory:
+		`cd build`
+	6)	
