@@ -74,3 +74,4 @@ The followings are optimized for using on linux and Mac. Most of them are also s
 		jtop (for jetson)
 		top (Mac)
 		uptime (to see how long the device is kept on)
+		sudo apt install nload && nload (to see network traffic from terminal)
