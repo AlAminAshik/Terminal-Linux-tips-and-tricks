@@ -12,6 +12,13 @@ The following codes work for almost all OS. if git is not found, download and in
 	> Push the repo
 		git push
 
+> To add github SSH on a new machine to easily work with a repo without entering username and pass:
+	1. 	ensure git is installed by typing `git --version`
+	2.	generate a new keygen on linux: `ssh-keygen -t ed25519 -C "alaminashik890.bd@gmail.com"`
+	3.	the key starts with ssh-ed and ends with mail.
+	4.	copy the ssh link from the github repo you want to copy.
+	5.	clone on the linux machine: `git clone git@github.com:Ongshak-Tech/Steeltech-pipe-QC.git`
+
 > To discard/delete a local change and fetch from online
 	> fetch everything
 		git fetch --all
