@@ -1,0 +1,31 @@
+# SSH on or from a windows pc required additional steps, which can be cumbersome. Useful techniques and working code are added here.
+
+> Enabling SSH on Windows
+	1. Go to Settings> System> Optional features
+	2. See available features and install SSH Client and SSH Server.
+	3. Open PowerShell as administrator and run the commands:
+	`Start-Service sshd`
+	`Set-Service -Name sshd -StartupType 'Automatic'`
+	`New-NetFirewallRule -Name OpenSSH-In -DisplayName "Allow OpenSSH" -Enabled True -Direction Inbound -Protocol TCP -LocalPort 22 -Action Allow`
+	4. Restart the computer.
+
+
+> Copying a file to windows from another machine using Terminal
+Method 1:
+Let's say you're logged in to a Linux computer, and you need to send a file to a Windows computer.
+	1. Make sure the SSH client and SSH server are set up on Windows.
+	2. Open PowerShell and find the Windows computer's name:
+	`whoami`; If the name is in the form desktop-nsd2aoh\alamin, then the username is alamin.
+	IP address: `ipconfig`; copy the IPv4 address.
+	2. Copy the folder location (replace and use backslashes). i.e., "E:/Google Drive/AF Doc"
+	3. From the Linux computer, push the file:
+	`scp test.txt alamin@192.168.0.XX:"E:/Google Drive/AF Doc/"
+
+Method 2:
+Let's say you're logged into a Windows computer, and you need to receive a file from the Linux computer.
+	1. It is easier this way; in fact, it does not require an SSH client.
+	2. Find the username and IP address of the Linux machine:
+	`whoami`
+	`ip addr | grep inet`
+	3. Open PowerShell on Windows
+	`scp root@192.168.0.XX:/mnt/hdd/test.txt "C:/Users/Alamin/Downloads"`
