@@ -1,0 +1,34 @@
+Setting up, running, creating, and pushing the environment.
+
+> Installing Docker:
+	1. Go to docker.com and download for Windows.
+	2. You may need to install WSL by opening PowerShell and running `wsl --install'
+	3. Restart your computer.
+	4. This also adds to your PATH, and you can now use PowerShell and run Docker commands. Download any package from hub.docker.com
+
+
+> Creating a new Docker image and environment:
+	1. Create a new folder. Create a file `requirements.txt` and `Dockerfile` without any extension.
+	2. The requirements file can contain prerequisites. One example is:
+```
+FROM python:3.11-slim
+# Set the working directory inside the container
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+# Keep the container alive or run a shell by default
+CMD ["python"]
+```
+	3. to build, lets say the folder name is python_on_docker and the environment you want to call is my-python-env. Run the following code:
+	`docker build -t my-python-env .\python_on_docker`
+	4. Check if the new image as been created
+	`docker images`
+	5. Run the env in interactive mode, in windows you need to mention the path:
+	`docker run -it -v 'E:\Google Drive\Skills and works\Python:/app' my-python-env bash`
+	6. exit using `exit` followed by enter.
+
+> Basic docker commands:
+	* Check for running container: `docker ps`
+	* Check all the containers: `docker ps -a`
+	* Check available images: `docker images`
+	* Run a root image in interactive mode i.e python downloaded from hub.docker.com: `docker run -it python:3.11.18-alpine3.23`
