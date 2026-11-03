@@ -10,8 +10,8 @@
 	4. Restart the computer.
 
 
-> Copying a file to windows from another machine using Terminal
-Method 1:
+####--- Let's say you're logged in to a Linux/Mac computer ---####
+> Sending a file to Windows:
 Let's say you're logged in to a Linux computer, and you need to send a file to a Windows computer.
 	1. Make sure the SSH client and SSH server are set up on Windows.
 	2. Open PowerShell and find the Windows computer's name:
@@ -21,7 +21,27 @@ Let's say you're logged in to a Linux computer, and you need to send a file to a
 	3. From the Linux computer, push the file:
 	`scp test.txt alamin@192.168.0.XX:"E:/Google Drive/AF Doc/"
 
-Method 2:
+> Receiving a file from Windows:
+	1. In Windows, SSH server from optional feature must be added.
+	2. Find the username and IP address of Windows:
+	`whoami`
+	`ifconfig`
+	3. From the Linux computer, pull the file:
+	`scp alamin@192.168.0.XX:"E:/Google Drive/AQI_Proposal.docx" ~/Downloads
+	
+	Note:
+	If you cannot transfer, run `Start-Service sshd` in PowerShell in Windows.
+	must your forward slash and not back slash.
+
+
+####--- Let's say you're logged in to a Windows computer ---####
+> Sending a file to Linux/Mac:
+	1. Find the name and IP of the Linux machine.
+	2. Send using the command; two methods are shown:
+`scp '.\banner image.png' mdalaminashik@192.168.0.XX:~/Downloads`
+`scp "E:\Google Drive\Skills and works\banner image.png" mdalaminashik@192.168.0.XX:~/Downloads`
+
+> Receiving/collecting a file from another machine:
 Let's say you're logged into a Windows computer, and you need to receive a file from the Linux computer.
 	1. It is easier this way; in fact, it does not require an SSH client.
 	2. Find the username and IP address of the Linux machine:

@@ -1,0 +1,89 @@
+Setting up, running, and creating a docker environment.
+
+##########---- Windows ----########
+> Installing Docker:
+	1. Go to docker.com and download for Windows.
+	2. You may need to install WSL by opening PowerShell and running `wsl --install'
+	3. Restart your computer.
+	4. This also adds to your PATH, and you can now use PowerShell and run Docker commands. Download any package from hub.docker.com
+
+
+> Creating a new Docker image and environment:
+	1. Create a new folder. Create a file `requirements.txt` and `Dockerfile` without any extension.
+	2. The Dockerfile can contain prerequisites. One example is:
+```
+FROM python:3.11-slim
+# Set the working directory inside the container
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+# Keep the container alive or run a shell by default
+CMD ["python"]
+```
+	3. to build, lets say the folder name is python_on_docker and the environment you want to call is my-python-env. Run the following code:
+	`docker build -t my-python-env .\python_on_docker`
+	4. Check if the new image as been created
+	`docker images`
+	5. Run the env in interactive mode, in windows you need to mention the path:
+	`docker run -it -v 'E:\Google Drive\Skills and works\Python:/app' my-python-env bash`
+	6. exit using `exit` followed by enter.
+
+
+
+##########---- MAC ----########
+> Installing as simple as installing VLC media player.
+
+> Creating a new Docker image and environment:
+	1. Create a new directory, i.e basic_docker ad create files `requirements.txt` and `Dockerfile` without any extension.
+	2. Update the Dockerfile:
+```
+# basic Dockerfile example
+FROM python:3.11-slim
+
+# Install system dependencies required by OpenCV and core compilers
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libglib2.0-0 \
+    libxcb1 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workspace
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["python"]
+```
+	3. Update requirements with necessary packages:
+```
+pandas
+speedtest-cli
+```
+	4. Stay in the directory that contains Dockerfile and requirements.txt and build: 
+	`docker build -t test-image .`
+	5. Check if image successfully created:
+	`docker images`
+	6. Activate in bash mode:
+	`docker run -it test-image:latest bash`
+
+
+
+> Importing a Docker image:
+	1. Make sure a Docker image has been exported using
+	`docker save -o <docker_zip_name>.tar <docker_name>:latest`
+	2. Go to the zip directory and Load the image on Mac:
+	`docker load -i python-on-docker.tar`
+	3. Check if docker image properly loaded:
+	`docker images`
+	4. Run using bash in interactive mode
+	`docker run -it my-python-env:latest bash`
+
+
+
+##########---- Basic Docker commands ----########
+	* Check for running container: `docker ps`
+	* Check all the containers: `docker ps -a`
+	* Check available images: `docker images`
+	* Run a root image in interactive mode i.e python downloaded from hub.docker.com: `docker run -it python:3.11.18-alpine3.23`
+	* Export a docker image: `docker save -o my-docker-export.tar my-docker-image:latest`
+	* Exit docker env by typing exit.
