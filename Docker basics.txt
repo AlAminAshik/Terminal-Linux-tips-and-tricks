@@ -77,7 +77,8 @@ speedtest-cli
 	`docker images`
 	4. Run using bash in interactive mode
 	`docker run -it my-python-env:latest bash`
-
+ 5. for running docker from a folder containing dockerfile:
+`docker run -it --rm --privileged --net=host -v "$(pwd)":/app your_imags:latest`
 
 
 ##########---- Basic Docker commands ----########
